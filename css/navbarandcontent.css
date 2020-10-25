@@ -1,0 +1,44 @@
+/*General */
+*{
+    box-sizing: border-box !important;
+}
+
+html,
+body{
+    min-height:100vh;
+    min-width:750px;
+}
+
+body{
+    margin: 0px;
+    padding:0px;
+    width:98.9vw;
+}
+
+.container-fluid{
+    padding:0px;
+    margin:0px;
+}
+#content{
+    width:90vw;
+}
+div {
+    padding:0px;
+    margin:0px;
+}
+/*Nav stuff*/ 
+#nav{
+
+    min-height:100%;
+    width:10vw;
+    min-width:105px;
+    text-align:center;
+}
+.marginTop{
+    margin-top:70px;
+}
+.current{
+background-color:#0069d9
+}
+
+

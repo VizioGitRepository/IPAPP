@@ -1,0 +1,76 @@
+
+	
+							Planning
+
+EMPLOYEE LIST
+
+-EmployeeName+Numbers editor->edit btn->3 options -->Edit existing (enter table id+name+number)-->submit button -->route.js -->mongoose-->db
+						  -->add new employee                          -->submit button -->route.js-->mongoose-->db
+						  -->Delete employee (just enter Table ID)     -->sumbit button -->routing.js-->mongoose-->db
+OR
+
+-EmployeeNames+numbers-->edit on click-->update button-->mongoose-->db
+                      -->delete on bin icon-->alert-->mongoose-->db
+-I have an array of objects [{}...{}...{}]
+-step one, splice array to create seperate objects
+-step 2 merge objects into one objects
+-step 3 use for Post Request 
+-alert=== "are you sure you want to delete" + employee name? +"from this table?"
+
+
+AGENCY TRACKER
+
+Parsing raw info
+-has to be in json
+-assign id to a name and add all keys+values on day after day?
+-create an id for each value, have an edit button, save button and delete button?** best idea so far because even
+it doesnt allow for doubles to be made when a name has a slight misspelling.
+-best way to do this for now is to do the employeenames+numbers abd see how the basics are.
+
+-edit row icon
+-delete row icon
+-save icon.
+
+
+-Save btn so they can be saved for further updating throughout the week 
+-every week creates a new collection
+-make a program that exports a collection to an excel file
+-make a program that can take that excel file and after confirmation can send it via email
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------
+
+
+							Html
+
+App sub-pages
+
+	->Agency Tracker
+
+		
+	->Line Down Report
+		Note: still needs to be created
+	->tube search
+		
+	->sign-in
+		Note: no idea how to navigate this yet, least of my worries right now
+	
+							
+							Other
+
+-Agency tracker -> database -> Supervisor "check Page"-> "send as email" button
+
+-Agency tracker REST:
+	-Make proper schema, export 
+	-figure out how to work mongoDB
+-Tube Search REST
+	-Will be simplest to start with along the employee names and numbers
+	-will go by item# or pasta type+grams 
+
+----------------------------------------------------------------------------------------------------------------------------------
+Attributions
+<div>Icons made by <a href="https://www.flaticon.com/authors/pixelmeetup" title="Pixelmeetup">Pixelmeetup</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+
+Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a>

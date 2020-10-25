@@ -1,0 +1,32 @@
+GET http://localhost:8080/employeeNamesandNumbers.html
+
+###
+
+GET http://localhost:8080/employeeList/5f78c6452391844b5037c041
+
+###
+
+POST http://localhost:8080/employeeNamesandNumbers.html/add
+Content-Type: application/json
+
+{
+    "lname":"Erica",
+    "fname":"antff",
+    "shift":"1",
+    "number":"9059511369"
+}
+
+###
+
+DELETE http://localhost:8080/employeeList/5f7900784acb710b640df99e
+
+###
+
+PATCH http://localhost:8080/employeeList/5f78d5557bd31d17c8b54bfc
+Content-Type: application/json
+
+{
+"name":"1",
+"shift":"strin",
+"number":"kevin"
+}

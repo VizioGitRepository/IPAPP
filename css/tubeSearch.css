@@ -1,0 +1,52 @@
+.hidden{
+    display:none;
+}
+.halfBox{
+    width:48%;
+    max-height:95%
+}
+#searchContainer{
+    max-height:352px;
+}
+.b1{
+    width:100%;
+    height:40px;
+}
+.spacer{
+    width:1%
+}
+#mainContainer{
+    width:100%;
+    height:100%;
+}
+#header{
+   
+    width:100%;
+}
+ul{
+    margin:0px;
+}
+body{
+    height:100%;
+    
+}
+#content{
+    height:100%;
+}
+#searchResultsContainer{
+margin-left: auto;
+margin-right: auto;
+border-width: 1px;
+border-radius:5%;
+
+}
+#tubeTable{
+    width:100%;
+}
+.smallTextBox{
+    width:75%;
+    height:75%;
+    max-height:100%;
+    text-overflow:scroll;
+ 
+}

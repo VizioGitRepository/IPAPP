@@ -1,0 +1,120 @@
+<!DOCTYPE html5>
+
+<html>
+    <head>
+        <%-include('Layouts/commonTags')%>
+        <link rel="stylesheet" href="../css/employeeList.css" type="text/css">
+        <script src ="../js/jquery.js"></script>
+        <script src='../js/EmployeeListsFormHandler.js'></script>
+        <script src="../js/employeeList.js"></script>
+        <script src='../js/FilterTable.js'></script>
+    </head>
+
+<body class="d-flex justify-content-start">
+    <%-include('Layouts/navbar.ejs')-%>
+    <div id="content" class="container-fluid">
+        <div id="header" class="container-fluid">
+          <h1 class="card-header text-center">Employee List and Numbers</h1>
+        </div>
+        <div id="mainInfo" class="card-body text-center d-flex justify-content-between align-content-start flex-wrap">
+          <div id="selectShift" class="bg-primary text-white smallbox" >
+            <h5 class="card-title text-center">Filter by shift</h5>
+            <form class="d-flex align-items-baseline justify-content-center" >
+              <select id='shiftSelect' onclick='filterTablesShift()'class="mt-2 selectClass" >
+                <option name='select' id='select' value='0'>View All</option>
+                <option name='morn'id="morn" value ="1">Morning(1)</option>
+                <option name='aft' id="aft" value ="2">Afternoon(2)</option>
+                <option name='night' id ="night" value ="3">Night(3)</option>
+              </select>
+              <input type="submit" class="btn btn-dark submitClass text-center" ></input>
+          </form>
+          </div>
+          <div id="searchName" class="bg-primary text-white smallbox">
+            <h5>Filter by name or number</h5>
+            <div class="d-flex flex-nowrap align-items-center justify-content-center mt-3">
+              <form action='http://localhost:8080/employeeNamesandNumbers.html/getByName' method='get'>  
+                <input id ='searchInput'onkeyup='filterTables()' class="text-center searchClass" type="text" placeholder="Name/Number"></input>
+                <input type="submit" class="btn btn-dark submitClass text-center"></input>
+              </form>
+            </div>
+          </div>
+          <div id="listEmployees" class="container-fluid">
+            <h4 id="headerTable" class="mb-2 mt-5">All Employees</h4>
+            <div id="All" class="d-flex justify-content-center">
+            <table id="table" class="table  table-bordered">
+                <thead>
+                  <tr class="thead-light">
+                    <th class='text-center' scope="col">
+                      Shift
+                    </th>
+                    <th  class='text-center' scope="col">
+                      Last Name
+                    </th>
+                    <th class='text-center' scope='col'>
+                      First Name
+                    </th>
+                    <th  class='text-center' scope="col"> 
+                      Number
+                    </th>
+                    <th  class='text-center' scope='col'>
+                      Edit
+                    </th>
+                    <th  class='text-center' scope='col'>
+                      Delete
+                    </th>
+                  </tr>
+                </thead>
+                <tbody class="table-hover" id="tbody">
+                  <% employee.forEach(function(employee){ %>
+                    <tr><td class='text-center'><%= employee.shift %></td>
+                      <td class='text-center'><%= employee.lname %></td>
+                      <td class='text-center'><%= employee.fname %></td>
+                      <td class='text-center'> <%= employee.number %></td>
+                      <td class='text-center'>
+                        <form method='get' action='http://localhost:8080/employeeNamesandNumbers.html/patch/<%= employee.id %>'>
+                        <input type='image' name='edit' class='icon' src='../Images+Icons/edit.svg'></input>
+                      </form>
+                      </td>
+                      <td class='text-center'>
+                        <form  method='get' action='http://localhost:8080/employeeNamesandNumbers.html/del/<%= employee.id %>'>
+                          <input type='image' name ='delete' class='icon' src='../Images+Icons/delete.svg'></input>
+                        </form>
+                      </td>
+                    </tr>
+                    <% }) %> 
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div id="editor" class="container-fluid text-align-center">
+            <div id="toggleButtonGroup" class="btn-group" role="group">
+              <btn id="addBtn" class="btn btn-dark">Add Employee</btn>
+            </div>
+            <div id="formContainer">
+              <div id="addForm" action='/add' method='POST' class='bg-dark mt-3 hidden mr-auto ml-auto formClass text-white text-center'>
+                <h5 class='pt-3'>Add a new Employee</h5>
+                <form id="addForms" class='p-3' name="addForm"  >
+                  <label for='fname' class='mb-0'>Enter First Name</label>
+                  <input class='text-center mb-3'name='fname' placeholder='First Name' type='text'></input>
+                  <label for='lName' class='mb-0'>Enter Last Name</label>
+                  <input class='text-center mb-3' name='lname' placeholder='Last Name' type='text'></input>
+                  <label class='mb-0'for='select'>Select Shift</label>
+                  <select class='mb-2' name='select'>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                  </select>
+                  <label class='mb-0' for='number'>Enter Phone Number</label>
+                  <input class='text-center mb-2' name='number' type='text' placeholder='xxx-xxx-xxxx'></input>
+                  <input id="addFormSubmit" type="submit" value="Submit" class='btn submitClass mt-1 btn-primary'></input>
+                </form>
+              </div>
+              <%-include('Layouts/editEmployeeForm')-%>
+              <%-include('Layouts/operationsucess')-%>
+            </div>    
+          </div>
+          </div>
+        </div>
+      </div>
+    </body>
+</html>

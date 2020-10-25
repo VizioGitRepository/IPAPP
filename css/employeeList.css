@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box !important;
+}
+
+body{
+    min-width:750px;
+    height:950px;
+}
+#mainInfo{
+max-height:inherit
+}
+#content{
+height:100%;
+}
+.smallbox{
+    width:48%;
+    min-width:295px;
+    padding:25px;
+    border-radius: 1%;
+    height:20%;
+    min-height :166px;
+}
+
+
+input:focus{
+outline:none;
+}
+
+h5{
+    padding:0px;
+    margin:0px;
+}
+.searchClass{
+    height:30px;
+    padding:10px;
+}
+.submitClass{
+    height:30px;
+    padding:2px;
+    width:100px;
+}
+#listEmployees{
+    height:50%;
+    width:100%;
+}
+#all{
+    
+
+}
+#table{
+    max-height:100%;
+    max-width:85%;
+}
+#tableId{
+    width:8%;
+}
+#shift{
+    width:8%;
+}
+.selectClass{
+    height:30px;
+}
+
+.spacer{
+    margin-bottom: 10px;;
+}
+
+.bottomformclass{
+    height:55%;
+    width:20%;
+    min-width:219px;
+    margin-left: auto;
+    margin-right:auto;
+}
+.hidden{
+    display:none;
+}
+.formClass{
+    min-width:208.75px;
+    width:20%;
+    border-radius: 25px;
+}
+.checkMarkImg{
+    width:100px;
+}
+
+.icon{
+    width:20px;
+}

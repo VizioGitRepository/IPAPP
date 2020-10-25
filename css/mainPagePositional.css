@@ -1,0 +1,32 @@
+/*General */
+body{
+    margin: 0px;
+    padding:0px;
+    height:100vh;
+}
+.container-fluid{
+    padding:0px;
+    margin:0px;
+}
+#content{
+    width:75%;
+}
+div {
+    padding:0px;
+    margin:0px;
+}
+/*Nav stuff*/ 
+#nav{
+    width:10%;
+    min-width:100px;
+    height:100%;
+    text-align:center;
+}
+.marginTop{
+    margin-top:20px;
+}
+.current{
+background-color:#0069d9
+}
+
+

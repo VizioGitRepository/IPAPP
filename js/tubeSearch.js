@@ -1,0 +1,26 @@
+$(document).ready(function(){
+    $("#150button").click(function(){
+      $("#150TubeList").toggle('hidden');
+    });
+    $("#140button").click(function(){
+        $("#140TubeList").toggle('hidden');
+    });
+    $("#130button").click(function(){
+        $("#130TubeList").toggle("hidden");
+    });
+    $("#120button").click(function(){
+        $("#120TubeList").toggle("hidden");
+    });
+    $("#110button").click(function(){
+        $("#110TubeList").toggle("hidden");
+    });
+    $("#100button").click(function(){
+        $("#100TubeList").toggle("hidden");
+    });
+    $("#90button").click(function(){
+        $("#90TubeList").toggle("hidden");
+    });
+    $("#80button").click(function(){
+        $("#80TubeList").toggle("hidden");
+    });
+});
