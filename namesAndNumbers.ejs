@@ -1,0 +1,109 @@
+<!DOCTYPE html5>
+
+<html>
+    <head>
+        <%-include('Layouts/commonTags')%>
+        <link rel="stylesheet" href="../css/employeeList.css" type="text/css">
+        <script src='../js/EmployeeListsFormHandler.js'></script>
+        <script src="../js/employeeList.js"></script>
+        <script src='../js/FilterTable.js'></script>
+    </head>
+
+<body class="d-flex justify-content-start">
+  <!--Nav-->  
+  <%-include('Layouts/navbar.ejs')-%>
+    <div id="content" class="container-fluid">
+      
+      <!--Header-->
+      <div id="header" class="container-fluid">
+        <h1 class="card-header text-center">Employee Directory</h1>
+      </div>
+        
+        <!--Main Content Container-->  
+        <div id="mainInfo" class="card-body text-center d-flex justify-content-between align-content-start flex-wrap">
+          
+          <!-- Filters Container -->
+          <div id='filtersContainer' class="bg-primary sticky-top text-white d-flex justify-content-center align-items-center generalWidth longBox">
+            
+          <!-- Shift Filter -->
+            <div id="selectShift" class='longBoxSubSection d-flex justify-content-center align-items-center'>
+            <h5 class="mr-3 inlineB">Filter by shift</h5>
+            <div class='bg-light p-1 inlineB iconContainer'><img src='../Images+Icons/search1.svg' class='icon'></img></div>
+              <select id='shiftSelect' onclick='filterTablesShift()'class="selectClass matchingInputs" >
+                <option name='select' id='select' value='0'>View All</option>
+                <option name='morn'id="morn" value ="1">Morning(1)</option>
+                <option name='aft' id="aft" value ="2">Afternoon(2)</option>
+                <option name='night' id ="night" value ="3">Night(3)</option>
+              </select>
+          </div>
+          
+          <!-- Text Filter-->
+          <div id="searchName"class='longBoxSubSection d-flex justify-content-start align-items-center'>
+              <h5 class='inlineB mr-3'>Filter by name/number</h5>
+              <div class='bg-light p-1 inlineB iconContainer'><img src='../Images+Icons/search.svg' class='icon'></img></div>
+              <input id ='searchInput'onkeyup='filterTables()' class="text-center inlineB searchClass matchingInputs" type="text" placeholder="Name/Number"></input>
+          </div>
+        </div>
+          
+        <!--Table-->
+          <div id="listEmployees" class="container-fluid d-flex generalWidth justify-content-center">
+            <table id="table" class="table  table-bordered">
+              <thead>
+                <tr class="thead-light">
+                  <th class='text-center' scope="col">
+                    Shift
+                  </th>
+                  <th  class='text-center' scope="col">
+                    Last Name
+                  </th>
+                  <th class='text-center' scope='col'>
+                    First Name
+                  </th>
+                  <th  class='text-center' scope="col"> 
+                    Number
+                  </th>
+                  <th  class='text-center' scope='col'>
+                    Edit
+                  </th>
+                  <th  class='text-center' scope='col'>
+                    Delete
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="table-hover" id="tbody">
+                <% employee.forEach(function(employee){ %>
+                  <tr><td class='text-center'><%= employee.shift %></td>
+                    <td class='text-center'><%= employee.lname %></td>
+                    <td class='text-center'><%= employee.fname %></td>
+                    <td class='text-center'> <%= employee.number %></td>
+                    <td class='text-center'>
+                      <input type='image' name='edit' value='<%= employee.id %>' class='icon editorBtn' src='../Images+Icons/edit.svg'></input>
+                    </td>
+                    <td class='text-center'>
+                      <form  method='get' action='http://localhost:8080/employeeNamesandNumbers.html/del/<%= employee.id %>'>
+                        <input type='image' name ='delete' class='icon' src='../Images+Icons/delete.svg'></input>
+                      </form>
+                    </td>
+                  </tr>
+                <% }) %> 
+              </tbody>
+            </table>
+          </div>
+          
+          <!--Editor-->
+          <div id="editor" class="container-fluid text-align-center"></div>
+              
+            <btn id="addBtn" class="btn mr-auto ml-auto generalWidth btn-dark">Add Employee</btn>
+  
+              <!--Form container-->
+            <div id="formContainer">
+              <%-include('Layouts/addForm')-%>
+              <%-include('Layouts/editEmployeeForm')-%>
+              <%-include('Layouts/operationsucess')-%>
+            </div>    
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
